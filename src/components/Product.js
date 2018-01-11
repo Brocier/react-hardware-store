@@ -8,11 +8,14 @@ class Product extends Component {
     const description = this.props.description;
     const price = this.props.price;
 
+    const deleteProductFromProductList = this.props.deleteProductFromProductList
+
     return (
       <div>
         <h3>{productName}</h3>
         <div>{description}</div>
         <div>${price}</div>
+        <button onClick={deleteProductFromProductList}>Delete</button>
       </div>
     );
   }

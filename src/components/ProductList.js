@@ -7,6 +7,7 @@ import Product from './Product';
 class ProductList extends Component {
   render() {
     const productList = this.props.productList;
+    const deleteProductFromProductList = this.props.deleteProductFromProductList;
 
     console.log(productList);
 
@@ -15,7 +16,9 @@ class ProductList extends Component {
         productName={product.productName}
         description={product.description}
         price={product.price}
-        key={index}/>;
+        key={index}
+        index={index}
+        deleteProductFromProductList={this.props.deleteProductFromProductList}/>
     });
 
     return (

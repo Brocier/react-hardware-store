@@ -20,7 +20,7 @@ class HomePage extends Component {
     super()
     this.state = {
       itemCurrentlyOnSale: 'A Hammer',
-      editSaleItem: true,
+      editSaleItem: false,
       productList: [
         {
           productName: 'Hammer',
@@ -39,7 +39,6 @@ class HomePage extends Component {
     const editSaleItem = !this.state.editSaleItem;
     this.setState({editSaleItem});
   }
-
   handleItemCurrentlyOnSaleChange = (event) => {
     const itemCurrentlyOnSale = event.target.value;
     this.setState({itemCurrentlyOnSale});
@@ -48,6 +47,11 @@ class HomePage extends Component {
     const productList = [...this.state.productList];
     productList.push(newProduct);
     this.setState({productList});
+  }
+  deleteProductFromProductList = (clickedProduct) => {
+    const productList = [...this.state.productList];
+    productList.splice(clickedProduct);
+    this.setState({productList})
   }
 
   render() {
@@ -72,7 +76,8 @@ class HomePage extends Component {
             : null}
           <AdminView
             productList={this.state.productList}
-            addNewProductToProductList={this.addNewProductToProductList}/>
+            addNewProductToProductList={this.addNewProductToProductList}
+            deleteProductFromProductList={this.deleteProductFromProductList}/>
         </div>
       </HomePageContainer>
     )
