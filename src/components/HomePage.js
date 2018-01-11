@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react'
 import AdminView from './AdminView'
-// import ShopView from './ShopView'
+import ShopView from './ShopView'
 import styled from 'styled-components'
 
 const HomePageContainer = styled.div `
@@ -21,6 +21,7 @@ class HomePage extends Component {
     super()
     this.state = {
       itemCurrentlyOnSale: 'A Hammer',
+      adminView: false,
       editSaleItem: false,
       productList: [
         {
@@ -35,7 +36,10 @@ class HomePage extends Component {
       ]
     }
   }
-
+  toggleAdminView = () => {
+    const adminView = !this.state.adminView
+    this.setState({adminView})
+  }
   toggleEditSaleItem = () => {
     const editSaleItem = !this.state.editSaleItem;
     this.setState({editSaleItem});
@@ -59,6 +63,10 @@ class HomePage extends Component {
     return (
       <HomePageContainer>
         <div>
+          <button onClick={this.toggleAdminView}>
+            {this.state.adminView
+              ? 'Admin'
+              : 'Customer'}</button>
           <h1>My Hardware Store</h1>
           <span>Currently On Sale: {this.state.itemCurrentlyOnSale}!</span>
           <span>
@@ -66,7 +74,9 @@ class HomePage extends Component {
               {this.state.editSaleItem
                 ? 'Hide'
                 : 'Edit Sale Item'}</button>
+
           </span>
+
           {this.state.editSaleItem
             ? <div>
                 <input
@@ -75,10 +85,18 @@ class HomePage extends Component {
                   type="text"/>
               </div>
             : null}
-          <AdminView
-            productList={this.state.productList}
-            addNewProductToProductList={this.addNewProductToProductList}
-            deleteProductFromProductList={this.deleteProductFromProductList}/>
+
+          {this.state.adminView
+            ? <AdminView
+                productList={this.state.productList}
+                addNewProductToProductList={this.addNewProductToProductList}
+                deleteProductFromProductList={this.deleteProductFromProductList}/>
+            : null}
+
+          {this.state.adminView
+            ? null
+            : <ShopView productList={this.state.productList}/>}
+
         </div>
       </HomePageContainer>
     )
