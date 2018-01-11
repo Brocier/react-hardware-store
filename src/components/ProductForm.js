@@ -1,10 +1,10 @@
 // src/components/ProductForm.js
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 class ProductForm extends Component {
 
   constructor() {
-    super();
+    super()
 
     this.state = {
       newProduct: {}
@@ -12,13 +12,13 @@ class ProductForm extends Component {
   }
 
   handleNewProductChange = (event) => {
-    const attributeName = event.target.name;
-    const attributeValue = event.target.value;
+    const attributeName = event.target.name
+    const attributeValue = event.target.value
 
     const newProduct = {
       ...this.state.newProduct
-    };
-    newProduct[attributeName] = attributeValue;
+    }
+    newProduct[attributeName] = attributeValue
 
     this.setState({newProduct})
   }
@@ -54,8 +54,8 @@ class ProductForm extends Component {
           <div><input type="submit" value="Create New Product"/></div>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default ProductForm;
+export default ProductForm
