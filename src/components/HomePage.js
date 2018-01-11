@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react'
 import AdminView from './AdminView'
+import ShopView from './ShopView'
 import styled from 'styled-components'
 
 const HomePageContainer = styled.div `
@@ -50,8 +51,7 @@ class HomePage extends Component {
   }
   deleteProductFromProductList = (clickedProduct) => {
     const productList = [...this.state.productList];
-    console.log(productList, clickedProduct)
-    // productList.push(clickedProduct);
+    productList.splice(clickedProduct, 1);
     this.setState({productList})
   }
 
