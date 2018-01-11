@@ -1,3 +1,5 @@
+//src/components/AdminView
+
 import React, {Component} from 'react';
 import ProductForm from './ProductForm';
 import ProductList from './ProductList'
