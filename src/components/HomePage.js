@@ -50,7 +50,7 @@ class HomePage extends Component {
   }
   deleteProductFromProductList = (clickedProduct) => {
     const productList = [...this.state.productList];
-    productList.splice(clickedProduct);
+    productList.pop(clickedProduct);
     this.setState({productList})
   }
 
