@@ -95,7 +95,9 @@ class HomePage extends Component {
 
           {this.state.adminView
             ? null
-            : <ShopView productList={this.state.productList}/>}
+            : <ShopView
+              productList={this.state.productList}
+              adminView={this.state.adminView}/>}
 
         </div>
       </HomePageContainer>
