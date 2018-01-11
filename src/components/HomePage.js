@@ -2,6 +2,12 @@
 
 import React, {Component} from 'react'
 import AdminView from './AdminView'
+import styled from 'styled-components'
+
+const HomePageContainer = styled.div `
+display: flex;
+justify-content: center;
+`
 
 class HomePage extends Component {
 
@@ -13,11 +19,11 @@ class HomePage extends Component {
       productList: [
         {
           productName: 'Hammer',
-          description: 'Itsa hammer',
+          description: 'It is a hammer',
           price: 12.3
         }, {
           productName: 'Nail',
-          description: 'Itsa nail',
+          description: 'It is a nail',
           price: 0.12
         }
       ]
@@ -33,12 +39,17 @@ class HomePage extends Component {
     const itemCurrentlyOnSale = event.target.value;
     this.setState({itemCurrentlyOnSale});
   }
+  addNewProductToProductList = (newProduct) => {
+    const productList = [...this.state.productList];
+    productList.push(newProduct);
+    this.setState({productList});
+  }
 
   render() {
     return (
-      <div>
-        <h1>My Hardware Store</h1>
+      <HomePageContainer>
         <div>
+          <h1>My Hardware Store</h1>
           <span>Currently On Sale: {this.state.itemCurrentlyOnSale}!</span>
           <span>
             <button onClick={this.toggleEditSaleItem}>
@@ -54,9 +65,11 @@ class HomePage extends Component {
                   type="text"/>
               </div>
             : null}
-          <AdminView productList={this.state.productList}/>
+          <AdminView
+            productList={this.state.productList}
+            addNewProductToProductList={this.addNewProductToProductList}/>
         </div>
-      </div>
+      </HomePageContainer>
     )
   }
 }

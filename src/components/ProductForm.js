@@ -21,12 +21,19 @@ class ProductForm extends Component {
     newProduct[attributeName] = attributeValue;
 
     this.setState({newProduct})
-  };
+  }
+
+  addNewProduct = (event) => {
+    event.preventDefault()
+    this
+      .props
+      .addNewProductToProductList(this.state.newProduct)
+  }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.addNewProduct}>
           <div><input
             name="productName"
             type="text"

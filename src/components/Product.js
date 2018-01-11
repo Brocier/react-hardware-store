@@ -12,7 +12,7 @@ class Product extends Component {
       <div>
         <h3>{productName}</h3>
         <div>{description}</div>
-        <div>{price}</div>
+        <div>${price}</div>
       </div>
     );
   }
