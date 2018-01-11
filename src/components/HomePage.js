@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react'
 import AdminView from './AdminView'
-import ShopView from './ShopView'
+// import ShopView from './ShopView'
 import styled from 'styled-components'
 
 const HomePageContainer = styled.div `

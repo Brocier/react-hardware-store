@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 
 class Product extends Component {
-  deleteIt = () => {
+  deleteProduct = () => {
     this
       .props
       .deleteProductFromProductList(this.props.index)
@@ -18,7 +18,7 @@ class Product extends Component {
         <h3>{productName}</h3>
         <div>{description}</div>
         <div>${price}</div>
-        <button onClick={this.deleteIt}>Delete {productName}</button>
+        <button onClick={this.deleteProduct}>Delete {productName}</button>
       </div>
     );
   }
