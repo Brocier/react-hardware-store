@@ -7,6 +7,11 @@ import styled from 'styled-components'
 const HomePageContainer = styled.div `
 display: flex;
 justify-content: center;
+ h1{
+   padding: 10px;
+   background-color: #ff5000;
+   color: white;
+ }
 `
 
 class HomePage extends Component {
